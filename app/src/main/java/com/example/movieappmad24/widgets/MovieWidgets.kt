@@ -58,15 +58,15 @@ import com.example.movieappmad24.viewmodels.MoviesViewModel
 @Composable
 fun MovieList(
     modifier: Modifier,
-    movies: List<Movie> = getMovies(),
+    movies: List<Movie>, //remove getMovies() call
     navController: NavController,
     viewModel: MoviesViewModel
 ){
     LazyColumn(modifier = modifier) {
-        items(viewModel.movies) { movie ->
+        items(movies) { movie ->
             MovieRow(
                 movie = movie,
-                onFavoriteClick = {movieId ->
+                onFavoriteClick = { movieId ->
                     viewModel.toggleFavoriteMovie(movieId)
                 },
                 onItemClick = { movieId ->

@@ -27,9 +27,11 @@ fun WatchlistScreen(
         }
     ){ innerPadding ->
 
+        val favoriteMovies = moviesViewModel.favoriteMovies //integrate MoviesViewModel favoriteMovies
+
         MovieList(
             modifier = Modifier.padding(innerPadding),
-            movies = getMovies(),
+            movies = favoriteMovies,
             navController = navController,
             viewModel = moviesViewModel
         )
